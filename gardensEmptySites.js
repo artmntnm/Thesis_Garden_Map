@@ -207,6 +207,8 @@ mappa.on('load', function(){
         var description = e.features[0].properties.description;
         var streetview = e.features[0].properties.streetview;
 
+        var linkurl = e.features[0].properties.linkurl;
+
         description = addNewLines(description);
 
 
@@ -215,7 +217,8 @@ mappa.on('load', function(){
         var d_description = "<div>description: <br> " + description + "</div>";
         var d_coordinates = "<div>coordinates: " + coordinates + "</div>";
         var d_pic1 = "<img src=/assets/emptyLots/" + pic1 + " class='popupImage'>";
-        var d_streetview = "<a target='_blank' href='" + streetview + "'>link to streetview</a>";
+        var d_streetview = "<a target='_blank' href='" + streetview + "'>link to streetview</a><br>";
+        var d_linkurl = "<a target='_blank' href='" + linkurl + "'>LINK TO PROJECT</a>";
         var d_lotnr = "<div>lotnr: " + lotnr + "</div>";
 
         // Ensure that if the map is zoomed out such that multiple
@@ -233,7 +236,8 @@ mappa.on('load', function(){
                                              d_lotnr+
                                              d_occupation+
                                              d_description+
-                                             d_streetview
+                                             d_streetview+
+                                             d_linkurl
                                              ).addTo(mappa);
     });
 
